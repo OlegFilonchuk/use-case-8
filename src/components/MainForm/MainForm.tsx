@@ -7,7 +7,7 @@ import { changeUserData } from '../../state/actions';
 
 type State = UserData;
 
-type Action = { type: keyof State; payload: string };
+type Action = { type: keyof State; payload: string } | { type: 'reset' };
 
 function reducer(state: State, action: Action) {
   switch (action.type) {
@@ -34,6 +34,9 @@ function reducer(state: State, action: Action) {
         ...state,
         lastName: action.payload,
       };
+
+    case 'reset':
+      return initialState;
 
     default:
       return state;
@@ -67,33 +70,44 @@ export function MainForm() {
   const handleSubmit = (ev: FormEvent) => {
     ev.preventDefault();
     globalDispatch(changeUserData(state));
+    dispatch({ type: 'reset' });
   };
 
   return (
-    <div className={styles['main-form-wrapper']}>
-      <form className={styles['main-form']} onSubmit={handleSubmit}>
-        <input
-          onChange={handleChange('firstName')}
-          type="text"
-          id="firstName"
-          required
-        />
+    <form className={styles['main-form']} onSubmit={handleSubmit}>
+      <input
+        onChange={handleChange('firstName')}
+        value={state.firstName}
+        type="text"
+        id="firstName"
+        required
+      />
 
-        <input
-          onChange={handleChange('lastName')}
-          type="text"
-          id="lastName"
-          required
-        />
+      <input
+        onChange={handleChange('lastName')}
+        value={state.lastName}
+        type="text"
+        id="lastName"
+        required
+      />
 
-        <input onChange={handleChange('email')} type="text" id="email" />
+      <input
+        onChange={handleChange('email')}
+        value={state.email}
+        type="text"
+        id="email"
+      />
 
-        <input onChange={handleChange('message')} type="text" id="message" />
+      <input
+        onChange={handleChange('message')}
+        value={state.message}
+        type="text"
+        id="message"
+      />
 
-        <button type="submit" disabled={!isFormValid}>
-          Submit
-        </button>
-      </form>
-    </div>
+      <button type="submit" disabled={!isFormValid}>
+        Submit
+      </button>
+    </form>
   );
 }
