@@ -1,0 +1,13 @@
+.main-form-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-form {
+  display: flex;
+  flex-flow: column;
+  transform: translateY(-100%);
+}

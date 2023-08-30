@@ -1,10 +1,5 @@
 import { Reducer } from 'redux';
-import {
-  CHANGE_EMAIL,
-  CHANGE_MESSAGE,
-  CHANGE_FIRST_NAME,
-  CHANGE_LAST_NAME,
-} from './actionTypes';
+import { CHANGE_USER_DATA } from './actionTypes';
 
 const initialState = {
   firstName: '',
@@ -15,28 +10,10 @@ const initialState = {
 
 export const formReducer: Reducer = (state = initialState, action) => {
   switch (action.type) {
-    case CHANGE_EMAIL:
+    case CHANGE_USER_DATA:
       return {
         ...state,
-        email: action.payload,
-      };
-
-    case CHANGE_MESSAGE:
-      return {
-        ...state,
-        message: action.payload,
-      };
-
-    case CHANGE_FIRST_NAME:
-      return {
-        ...state,
-        firstName: action.payload,
-      };
-
-    case CHANGE_LAST_NAME:
-      return {
-        ...state,
-        lastName: action.payload,
+        ...action.payload,
       };
 
     default:
