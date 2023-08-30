@@ -22,22 +22,42 @@ export function UserDetails() {
         <tbody>
           <tr>
             <td>First Name</td>
-            <td className={styles['user-details-table__value']}>{firstName}</td>
+            <td
+              className={styles['user-details-table__value']}
+              data-testid="first-name"
+            >
+              {firstName}
+            </td>
           </tr>
 
           <tr>
             <td>Last Name</td>
-            <td className={styles['user-details-table__value']}>{lastName}</td>
+            <td
+              className={styles['user-details-table__value']}
+              data-testid="last-name"
+            >
+              {lastName}
+            </td>
           </tr>
 
           <tr>
             <td>Email</td>
-            <td className={styles['user-details-table__value']}>{email}</td>
+            <td
+              className={styles['user-details-table__value']}
+              data-testid="email"
+            >
+              {email}
+            </td>
           </tr>
 
           <tr>
             <td>Message</td>
-            <td className={styles['user-details-table__value']}>{message}</td>
+            <td
+              className={styles['user-details-table__value']}
+              data-testid="message"
+            >
+              {message}
+            </td>
           </tr>
         </tbody>
       </table>

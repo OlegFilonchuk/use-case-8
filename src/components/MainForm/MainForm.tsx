@@ -70,12 +70,14 @@ export function MainForm() {
   const handleSubmit = (ev: FormEvent) => {
     ev.preventDefault();
     globalDispatch(changeUserData(state));
+    console.log(state);
     dispatch({ type: 'reset' });
   };
 
   return (
     <form className={styles['main-form']} onSubmit={handleSubmit}>
       <input
+        placeholder="First Name"
         onChange={handleChange('firstName')}
         value={state.firstName}
         type="text"
@@ -84,6 +86,7 @@ export function MainForm() {
       />
 
       <input
+        placeholder="Last Name"
         onChange={handleChange('lastName')}
         value={state.lastName}
         type="text"
@@ -92,6 +95,7 @@ export function MainForm() {
       />
 
       <input
+        placeholder="Email"
         onChange={handleChange('email')}
         value={state.email}
         type="text"
@@ -99,6 +103,7 @@ export function MainForm() {
       />
 
       <input
+        placeholder="Message"
         onChange={handleChange('message')}
         value={state.message}
         type="text"
