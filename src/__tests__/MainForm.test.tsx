@@ -3,7 +3,6 @@ import { fireEvent, screen } from '@testing-library/react';
 import { MainForm } from '../components/MainForm';
 import { mockedValues, renderWithStore } from '../testUtils';
 import { changeUserData } from '../state/actions';
-import { UserData } from '../types';
 
 const mockDispatch = jest.fn();
 jest.mock('react-redux/lib/hooks/useDispatch', () => ({
